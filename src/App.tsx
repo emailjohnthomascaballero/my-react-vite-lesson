@@ -8,7 +8,7 @@ function App() {
 
   function increment() {
     // setCount(count + 1) // you can use this method too.
-    setCount((prevCount) => prevCount + 1)
+    setCount((prevCount) => prevCount + 1) // or you can use this method too & this is recommended.
   }
 
   return (
