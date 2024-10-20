@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -10,6 +10,11 @@ function App() {
     // setCount(count + 1) // you can use this method too.
     setCount((prevCount) => prevCount + 1) // or you can use this method too & this is recommended.
   }
+
+  // every component render useEffect will run.
+  useEffect(() => {
+    console.log(`count: ${count}`)
+  }, [count]);
 
   return (
     <div>
