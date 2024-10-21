@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import TestComponent from './test'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,12 +14,13 @@ function App() {
 
   // every component render useEffect will run.
   useEffect(() => {
-    console.log(`count: ${count}`)
-  }, [count]);
+    console.log(`I am from app component`)
+  }, []);
 
   return (
     <div>
       <button onClick={increment}>Increment {count}</button>
+      <TestComponent />
     </div>
   )
 }
