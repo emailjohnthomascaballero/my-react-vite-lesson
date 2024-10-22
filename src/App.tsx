@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import TestComponent from './test'
+import Todos from './todos'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +23,7 @@ function App() {
     <div>
       <button onClick={increment}>Increment {count}</button>
       <TestComponent />
+      <Todos />
     </div>
   )
 }
