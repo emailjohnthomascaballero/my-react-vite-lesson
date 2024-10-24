@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import TestComponent from './test'
 import Todos from './todos'
-
+import Ref from './ref'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,7 +23,8 @@ function App() {
     <div>
       <button onClick={increment}>Increment {count}</button>
       <TestComponent />
-      <Todos />
+      {/* <Todos /> */}
+      <Ref />
     </div>
   )
 }
