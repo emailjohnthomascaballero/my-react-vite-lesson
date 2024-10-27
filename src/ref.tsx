@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export default function RefComponent() {
+  // ref used to trigger animations
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
