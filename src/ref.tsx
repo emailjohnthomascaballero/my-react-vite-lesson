@@ -5,7 +5,8 @@ export default function RefComponent() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    console.log("REF: ", inputRef.current);
+    // add ?.name or ?.placeholder 
+    console.log("REF: ", inputRef.current?.placeholder);
   }, []);
 
   return (
