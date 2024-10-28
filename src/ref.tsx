@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 export default function RefComponent() {
   // ref used to trigger animations and best partner of useEffect
+  // the same code of document.querySelector("[name='something']")
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
