@@ -5,6 +5,7 @@ import './App.css'
 import TestComponent from './test'
 import Todos from './todos'
 import Ref from './ref'
+import Games from './games'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,7 +25,8 @@ function App() {
       <button onClick={increment}>Increment {count}</button>
       <TestComponent />
       {/* <Todos /> */}
-      <Ref />
+      {/* <Ref /> */}
+      <Games />
     </div>
   )
 }
