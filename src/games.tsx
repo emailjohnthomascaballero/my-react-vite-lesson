@@ -17,8 +17,15 @@ const GAMES_DATA = Array.from({ length: 300 }, (_, index) => {
 export default function GamesComponent() {
   const [games, setGames] = useState(GAMES_DATA);
 
+  function handleClickShuffle() {
+    setGames([...games].sort(() => Math.random() - 0.5));
+  }
+
   return (
     <div>
+      <div>
+        <button onClick={handleClickShuffle}>Shuffle</button>
+      </div>
       <ul>
         {games.map((game) => (
           <li key={game.id}>
