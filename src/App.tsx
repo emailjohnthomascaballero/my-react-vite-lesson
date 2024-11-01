@@ -22,8 +22,8 @@ function App() {
 
   return (
     <div>
-      <button onClick={increment}>Increment {count}</button>
-      <TestComponent />
+      {/* <button onClick={increment}>Increment {count}</button>
+      <TestComponent /> */}
       {/* <Todos /> */}
       {/* <Ref /> */}
       <Games />

@@ -26,13 +26,20 @@ export default function GamesComponent() {
       <div>
         <button onClick={handleClickShuffle}>Shuffle</button>
       </div>
-      <ul>
+      <ListGames games={games} />
+    </div>
+  );
+}
+
+// ListGames Component
+export function ListGames({games}: {games: Game[]}) {
+  return (
+    <ul>
         {games.map((game) => (
           <li key={game.id}>
             {game.name} - {game.difficulty}
           </li>
         ))}
       </ul>
-    </div>
   );
 }
