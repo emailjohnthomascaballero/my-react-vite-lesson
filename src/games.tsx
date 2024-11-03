@@ -23,10 +23,16 @@ export default function GamesComponent() {
 
   return (
     <div>
-      <div>
-        <button onClick={handleClickShuffle}>Shuffle</button>
-      </div>
+      <ShuffleButton onClick={handleClickShuffle} />
       <ListGames games={games} />
+    </div>
+  );
+}
+
+export function ShuffleButton({onClick}: {onClick: () => void}) {
+  return (
+    <div>
+      <button onClick={onClick}>Shuffle</button>
     </div>
   );
 }
