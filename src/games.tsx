@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 
 export type Game = {
@@ -29,13 +30,14 @@ export default function GamesComponent() {
   );
 }
 
-export function ShuffleButton({onClick}: {onClick: () => void}) {
+// React.memo() will prevent unnecessary re-renders (but first convert your function into arrow function)
+const ShuffleButton = React.memo(({onClick}: {onClick: () => void}) => {
   return (
     <div>
       <button onClick={onClick}>Shuffle</button>
     </div>
   );
-}
+});
 
 // ListGames Component
 export function ListGames({games}: {games: Game[]}) {
