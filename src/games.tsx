@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 
 export type Game = {
@@ -18,9 +18,17 @@ const GAMES_DATA = Array.from({ length: 300 }, (_, index) => {
 export default function GamesComponent() {
   const [games, setGames] = useState(GAMES_DATA);
 
-  function handleClickShuffle() {
-    setGames([...games].sort(() => Math.random() - 0.5));
-  }
+  // useCallback() helps optimize performance (but first convert your function into arrow function) (this is always partner of React.memo())
+
+  const handleClickShuffle = useCallback(() => {
+    setGames(prevGames => [...prevGames].sort(() => Math.random() - 0.5));
+    // setGames([...games].sort(() => Math.random() - 0.5));
+  }, [])
+
+  // previous code but not optimized:
+  // const handleClickShuffle = useCallback(() => {
+  //   setGames([...games].sort(() => Math.random() - 0.5));
+  // }, [])
 
   return (
     <div>
@@ -30,7 +38,7 @@ export default function GamesComponent() {
   );
 }
 
-// React.memo() will prevent unnecessary re-renders (but first convert your function into arrow function)
+// React.memo() will prevent unnecessary re-renders (but first convert your function into arrow function) (this is always partner of useCallback())
 const ShuffleButton = React.memo(({onClick}: {onClick: () => void}) => {
   return (
     <div>
