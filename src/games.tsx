@@ -32,11 +32,19 @@ export default function GamesComponent() {
 
   return (
     <div>
+      <TestButton onClick={handleClickShuffle} />
       <ShuffleButton onClick={handleClickShuffle} />
       <ListGames games={games} />
     </div>
   );
 }
+
+// TestButton not optimized because it has no React.memo()
+const TestButton = ({onClick}: {onClick: () => void}) => {
+  return (
+      <button onClick={onClick}>test</button>
+  );
+};
 
 // React.memo() will prevent unnecessary re-renders (but first convert your function into arrow function) (this is always partner of useCallback())
 const ShuffleButton = React.memo(({onClick}: {onClick: () => void}) => {
