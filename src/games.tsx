@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { useState } from "react";
 
 export type Game = {
@@ -19,6 +19,7 @@ export default function GamesComponent() {
   const [games, setGames] = useState(GAMES_DATA);
 
   // useCallback() helps optimize performance (but first convert your function into arrow function) (this is always partner of React.memo())
+  // only use this if you have React.memo() in your component
 
   const handleClickShuffle = useCallback(() => {
     setGames(prevGames => [...prevGames].sort(() => Math.random() - 0.5));
@@ -30,8 +31,15 @@ export default function GamesComponent() {
   //   setGames([...games].sort(() => Math.random() - 0.5));
   // }, [])
 
+  // useMemo() will prevent unnecessary re-renders
+  const totalValue = useMemo(() => {
+    console.log("calculating total value...")
+    return games.length;
+  }, [])
+
   return (
     <div>
+      <div>Total Value: {totalValue}</div>
       <TestButton onClick={handleClickShuffle} />
       <ShuffleButton onClick={handleClickShuffle} />
       <ListGames games={games} />
