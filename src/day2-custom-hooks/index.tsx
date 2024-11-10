@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
 
-// useCounter is the custom hook
-// function useCounter() {
-//   const [count, setCount] = useState(0);
-//   return { count, setCount };
-// }
-
 type Post = {
   id: number,
   title: string,
   body: string
 }
 
-export function Day2MainComponent() {
-  // const { count, setCount } = useCounter();
-
+// the custom hook is the useFetchData function and encapsulates logic that can be reused across components
+export function useFetchData() {
   const [data , setData] = useState<Post[]>([]);
 
   const fetchData = async () => {
@@ -28,11 +21,16 @@ export function Day2MainComponent() {
     fetchData();
   }, []);
 
+  return data;
+}
+
+export function Day2MainComponent() {
+
+  // useFetchData hook is called like this
+  const data = useFetchData();
+
   return (
     <div>
-      {/* <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button> */}
-
       <h1>Posts</h1>
       <ul>
         {data.map((post) => (
